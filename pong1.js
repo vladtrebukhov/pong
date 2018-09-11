@@ -1,5 +1,5 @@
-const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
 
 // player paddle position and dimensions
 let playerX = 20;
@@ -29,11 +29,11 @@ var computerSpeed = 4.5;
 
 var update = () => {
   // draw canvas,player, computer and ball to screen
-  context.fillStyle = 'black';
-  context.strokeStyle = 'white';
+  context.fillStyle = "black";
+  context.strokeStyle = "white";
   context.fillRect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = 'white';
-  context.font = '50px Arial';
+  context.fillStyle = "white";
+  context.font = "50px Arial";
   context.fillText(`${playerScore}`, 200, 80);
   context.fillText(`${computerScore}`, 450, 80);
   context.fillRect(playerX, playerY, playerWidth, playerHeight);
@@ -60,7 +60,6 @@ var update = () => {
 
   // bounce ball and score point for computer if ball misses paddle
   if (ballX < 0 + playerX) {
-    debugger;
     // ball is over or under player paddle
     if (ballY > playerY && ballY < playerHeight + playerY) {
       ballVelocityX = -ballVelocityX;
@@ -89,7 +88,7 @@ var update = () => {
   let movePlayerPaddle = event => {
     playerY = event.clientY - playerHeight;
   };
-  canvas.addEventListener('mousemove', movePlayerPaddle);
+  canvas.addEventListener("mousemove", movePlayerPaddle);
 
   // run update function every frame
   window.requestAnimationFrame(update);
